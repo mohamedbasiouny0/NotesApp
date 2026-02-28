@@ -45,7 +45,6 @@ class NoteItem extends StatelessWidget {
               ],
             ),
           ),
-
           Column(
             mainAxisAlignment: .spaceBetween,
             crossAxisAlignment: .end,
