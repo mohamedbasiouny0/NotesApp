@@ -23,27 +23,27 @@ class NoteItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: .spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: .start,
-            children: [
-              CustomText(
-                text: 'Flutter tips',
-                color: Colors.black,
-                fontWeight: .w600,
-                fontSize: 24,
-              ),
-              Gap(16),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * .5,
-                child: CustomText(
+          SizedBox(
+            width: MediaQuery.of(context).size.width * .5,
+            child: Column(
+              crossAxisAlignment: .start,
+              children: [
+                CustomText(
+                  text: 'Flutter tips',
+                  color: Colors.black,
+                  fontWeight: .w600,
+                  fontSize: 24,
+                ),
+                Gap(16),
+                CustomText(
                   text:
                       'Flutter tips and trics with me, My name is Mohamed Basiouny i\'m a Flutter developer',
                   color: Colors.black54,
                   fontWeight: .w400,
                   fontSize: 18,
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
 
           Column(
@@ -53,13 +53,18 @@ class NoteItem extends StatelessWidget {
               IconButton(
                 enableFeedback: false,
                 onPressed: () {},
-                icon: Icon(CupertinoIcons.trash_fill),
+                icon: Icon(Icons.delete_rounded, size: 30),
                 style: IconButton.styleFrom(
                   foregroundColor: Colors.black,
                   overlayColor: Colors.amber.shade100,
                 ),
               ),
-              CustomText(text: formattedDate, color: Colors.black),
+              CustomText(
+                text: formattedDate,
+                color: Colors.black54,
+                fontWeight: .w400,
+                fontSize: 13,
+              ),
             ],
           ),
         ],

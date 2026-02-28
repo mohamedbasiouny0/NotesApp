@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
-import 'package:test1/features/home/widgets/custom_app_bar.dart';
-import 'package:test1/features/home/widgets/note_item.dart';
 import 'package:test1/features/home/widgets/notes_view_body.dart';
 
 class HomeView extends StatelessWidget {
@@ -10,10 +6,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    return Scaffold(
-      body: NotesViewBody(),
-    );
+    return Scaffold(body: NotesViewBody());
   }
 }
-

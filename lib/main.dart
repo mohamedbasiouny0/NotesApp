@@ -14,14 +14,19 @@ class NotesApp extends StatelessWidget {
       home: HomeView(),
       debugShowCheckedModeBanner: false,
       themeMode: .dark,
-      darkTheme: ThemeData(useMaterial3: true, brightness: .dark).copyWith(
-        iconButtonTheme: IconButtonThemeData(
-          style: IconButton.styleFrom(foregroundColor: Colors.white),
-        ),
-        textTheme: ThemeData(
-          brightness: .dark,
-        ).textTheme.apply(bodyColor: Colors.white, displayColor: Colors.white),
-      ),
+      darkTheme:
+          ThemeData(
+            useMaterial3: true,
+            brightness: .dark,
+            scaffoldBackgroundColor: Color(0xff303030),
+          ).copyWith(
+            iconButtonTheme: IconButtonThemeData(
+              style: IconButton.styleFrom(foregroundColor: Colors.white),
+            ),
+            textTheme: ThemeData(brightness: .dark, fontFamily: 'Poppins')
+                .textTheme
+                .apply(bodyColor: Colors.white, displayColor: Colors.white),
+          ),
     );
   }
 }
