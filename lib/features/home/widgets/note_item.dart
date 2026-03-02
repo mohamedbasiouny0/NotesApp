@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
@@ -36,15 +35,14 @@ class NoteItem extends StatelessWidget {
                 crossAxisAlignment: .start,
                 children: [
                   CustomText(
-                    text: 'Flutter tips',
+                    text: 'Note title',
                     color: Colors.black,
                     fontWeight: .w600,
                     fontSize: 24,
                   ),
                   Gap(16),
                   CustomText(
-                    text:
-                        'Flutter tips and trics with me, My name is Mohamed Basiouny i\'m a Flutter developer',
+                    text: 'dnjfdfndnkdfnkdfklfsndlfkLKLFDNKSFDLKFSNFLKSNKLFNLK',
                     color: Colors.black54,
                     fontWeight: .w400,
                     fontSize: 18,
