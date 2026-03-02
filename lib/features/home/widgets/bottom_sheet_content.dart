@@ -3,14 +3,9 @@ import 'package:gap/gap.dart';
 import 'package:test1/features/home/widgets/custom_elevated_button.dart';
 import 'package:test1/shared/widgets/custom_text_field.dart';
 
-class BottomSheetContent extends StatefulWidget {
+class BottomSheetContent extends StatelessWidget {
   const BottomSheetContent({super.key});
 
-  @override
-  State<BottomSheetContent> createState() => _BottomSheetContentState();
-}
-
-class _BottomSheetContentState extends State<BottomSheetContent> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,7 +13,6 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
       child: GestureDetector(
         onTap: () {
           FocusScope.of(context).unfocus();
-          setState(() {});
         },
         child: SingleChildScrollView(
           child: Column(

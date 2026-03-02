@@ -4,7 +4,7 @@ import 'package:test1/features/home/widgets/bottom_sheet_content.dart';
 import 'package:test1/features/home/widgets/notes_view_body.dart';
 
 class HomeView extends StatelessWidget {
-  HomeView({super.key});
+const  HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
