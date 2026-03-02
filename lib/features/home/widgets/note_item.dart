@@ -14,6 +14,7 @@ class NoteItem extends StatelessWidget {
 
     return Container(
       padding: .all(32),
+      margin: .only(bottom: 16) ,
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.width * .5,
       decoration: BoxDecoration(
