@@ -1,7 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:test1/features/home/widgets/custom_app_bar.dart';
-import 'package:test1/features/home/widgets/note_item.dart';
+import 'package:test1/shared/widgets/custom_app_bar.dart';
 import 'package:test1/features/home/widgets/notes_listview.dart';
 
 class NotesViewBody extends StatelessWidget {
@@ -14,7 +14,11 @@ class NotesViewBody extends StatelessWidget {
       child: Column(
         children: [
           Gap(50),
-          CustomAppBar(onPressed: () {}),
+          CustomAppBar(
+            onPressed: () {},
+            icon: Icon(CupertinoIcons.search),
+            titleText: 'Notes',
+          ),
           Gap(16),
           Expanded(child: NotesListView()),
         ],
