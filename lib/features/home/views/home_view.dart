@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:test1/features/home/widgets/bottom_sheet_content.dart';
 import 'package:test1/features/home/widgets/notes_view_body.dart';
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:test1/model/note_model.dart';
 import 'package:test1/shared/widgets/custom_app_bar.dart';
 import 'package:test1/shared/widgets/custom_text_field.dart';
 
@@ -21,9 +20,9 @@ class EditNoteView extends StatelessWidget {
                 titleText: 'Edit Note',
               ),
               Gap(30),
-              CustomTextField(hintText: 'Title'),
+              CustomFormTextField(hintText: 'Title'),
               Gap(16),
-              CustomTextField(hintText: 'content', maxLines: 11),
+              CustomFormTextField(hintText: 'content', maxLines: 11),
             ],
           ),
         ),

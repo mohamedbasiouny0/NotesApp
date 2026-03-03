@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:test1/shared/widgets/custom_text.dart';
 
 class CustomElevatedButton extends StatelessWidget {
-  const CustomElevatedButton({super.key});
-
+  const CustomElevatedButton({super.key, required this.onPressed});
+  final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onPressed,
 
       style: ElevatedButton.styleFrom(
         foregroundColor: Colors.white,

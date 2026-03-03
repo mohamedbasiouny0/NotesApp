@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
-import 'package:test1/features/home/widgets/custom_elevated_button.dart';
-import 'package:test1/shared/widgets/custom_text_field.dart';
+import 'package:test1/features/home/widgets/add_note_form.dart';
 
 class BottomSheetContent extends StatelessWidget {
   const BottomSheetContent({super.key});
@@ -15,21 +13,7 @@ class BottomSheetContent extends StatelessWidget {
           FocusScope.of(context).unfocus();
         },
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Gap(30),
-              CustomTextField(hintText: 'Title'),
-              Gap(30),
-              CustomTextField(
-                maxLines: 11,
-                hintText: 'Content',
-                padding: .only(bottom: 16, left: 16, right: 16, top: 16),
-              ),
-              Gap(30),
-              CustomElevatedButton(),
-              Gap(30),
-            ],
-          ),
+          child: AddNoteForm(),
         ),
       ),
     );
