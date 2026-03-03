@@ -7,12 +7,13 @@ class CustomFormTextField extends StatelessWidget {
     this.padding,
     required this.hintText,
     this.maxLines = 1,
-    this.onSaved,
+    this.onSaved, required this.controller,
   });
   final EdgeInsetsGeometry? padding;
   final String hintText;
   final int maxLines;
   final void Function(String?)? onSaved;
+  final TextEditingController controller;
 
   OutlineInputBorder buildBorder() {
     return OutlineInputBorder(
