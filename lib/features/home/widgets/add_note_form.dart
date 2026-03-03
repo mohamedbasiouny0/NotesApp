@@ -28,7 +28,13 @@ class _AddNoteFormState extends State<AddNoteForm> {
             padding: .only(bottom: 16, left: 16, right: 16, top: 16),
           ),
           Gap(30),
-          CustomElevatedButton(onPressed: () {}),
+          CustomElevatedButton(
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+              }
+            },
+          ),
           Gap(30),
         ],
       ),

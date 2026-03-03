@@ -21,6 +21,13 @@ class CustomFormTextField extends StatelessWidget {
     );
   }
 
+  OutlineInputBorder errorBorder() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: BorderSide(color: Color(0xffBD9290)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -39,6 +46,8 @@ class CustomFormTextField extends StatelessWidget {
         hint: CustomText(text: hintText, fontSize: 17, color: Colors.white),
         enabledBorder: buildBorder(),
         focusedBorder: buildBorder(),
+        errorBorder: errorBorder(),
+        focusedErrorBorder: errorBorder(),
       ),
     );
   }
