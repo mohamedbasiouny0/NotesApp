@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:test1/cubits/add_note_cubit/add_note_cubit.dart';
@@ -7,8 +7,9 @@ import 'package:test1/model/note_model.dart';
 import 'package:test1/shared/widgets/custom_text_field.dart';
 
 class AddNoteForm extends StatefulWidget {
-  const AddNoteForm({super.key});
+  const AddNoteForm({super.key, required this.isLoading});
 
+  final bool isLoading;
   @override
   State<AddNoteForm> createState() => _AddNoteFormState();
 }
@@ -20,10 +21,6 @@ class _AddNoteFormState extends State<AddNoteForm> {
 
   @override
   Widget build(BuildContext context) {
-    NoteModel model = NoteModel(
-      title: titleController.text,
-      noteBody: contentController.text,
-    );
     return Form(
       key: formKey,
       child: Column(
@@ -42,9 +39,16 @@ class _AddNoteFormState extends State<AddNoteForm> {
             onPressed: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
+                NoteModel model = NoteModel(
+                  title: titleController.text,
+                  noteBody: contentController.text,
+                  color: Colors.blue.shade300.toARGB32(),
+                  date: DateTime.now().toString(),
+                );
                 BlocProvider.of<AddNoteCubit>(context).addNote(model);
               }
             },
+            isLoading: widget.isLoading,
           ),
           Gap(30),
         ],
