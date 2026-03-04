@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:test1/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:test1/cubits/get_note/get_note_cubit.dart';
+import 'package:test1/features/home/widgets/color_picker_widget.dart';
 import 'package:test1/features/home/widgets/custom_elevated_button.dart';
 import 'package:test1/model/note_model.dart';
 import 'package:test1/shared/widgets/custom_text_field.dart';
@@ -36,7 +37,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
             padding: .only(bottom: 16, left: 16, right: 16, top: 16),
             onSaved: (value) {},
           ),
-          Gap(30),
+          Gap(20),
+          ColorPickerWidget(),
+          Gap(20),
           CustomElevatedButton(
             onPressed: () {
               if (formKey.currentState!.validate()) {
@@ -44,7 +47,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 NoteModel model = NoteModel(
                   title: titleController.text,
                   noteBody: contentController.text,
-                  color: Colors.blue.shade300.toARGB32(),
+                  color: Colors.blue.value,
                   date: DateTime.now().toString(),
                 );
                 BlocProvider.of<AddNoteCubit>(context).addNote(model);
