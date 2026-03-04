@@ -3,8 +3,18 @@ import 'package:gap/gap.dart';
 import 'package:test1/shared/widgets/custom_app_bar.dart';
 import 'package:test1/shared/widgets/custom_text_field.dart';
 
-class EditNoteView extends StatelessWidget {
+class EditNoteView extends StatefulWidget {
   const EditNoteView({super.key});
+
+  @override
+  State<EditNoteView> createState() => _EditNoteViewState();
+}
+
+class _EditNoteViewState extends State<EditNoteView> {
+  TextEditingController titleController = TextEditingController();
+
+  TextEditingController contentController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -20,9 +30,16 @@ class EditNoteView extends StatelessWidget {
                 titleText: 'Edit Note',
               ),
               Gap(30),
-              CustomFormTextField(hintText: 'Title'),
+              CustomFormTextField(
+                hintText: 'Title',
+                controller: titleController,
+              ),
               Gap(16),
-              CustomFormTextField(hintText: 'content', maxLines: 11),
+              CustomFormTextField(
+                hintText: 'content',
+                maxLines: 11,
+                controller: contentController,
+              ),
             ],
           ),
         ),

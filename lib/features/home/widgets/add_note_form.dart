@@ -15,18 +15,21 @@ class AddNoteForm extends StatefulWidget {
 
 class _AddNoteFormState extends State<AddNoteForm> {
   final GlobalKey<FormState> formKey = GlobalKey();
-  TextEditingController titleController =TextEditingController();
-  TextEditingController contentController =TextEditingController();
+  TextEditingController titleController = TextEditingController();
+  TextEditingController contentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    NoteModel model =NoteModel(title: titleController.text,noteBody: contentController.text);
+    NoteModel model = NoteModel(
+      title: titleController.text,
+      noteBody: contentController.text,
+    );
     return Form(
       key: formKey,
       child: Column(
         children: [
           Gap(30),
-          CustomFormTextField(hintText: 'Title',controller:titleController ,),
+          CustomFormTextField(hintText: 'Title', controller: titleController),
           Gap(30),
           CustomFormTextField(
             controller: contentController,
@@ -39,7 +42,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             onPressed: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
-                BlocProvider.of<AddNoteCubit>(context).addNote(model)
+                BlocProvider.of<AddNoteCubit>(context).addNote(model);
               }
             },
           ),
