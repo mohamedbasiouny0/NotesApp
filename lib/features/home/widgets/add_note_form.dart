@@ -30,7 +30,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           Gap(30),
           CustomFormTextField(
             controller: contentController,
-            maxLines: 11,
+            maxLines: 9,
             hintText: 'Content',
             padding: .only(bottom: 16, left: 16, right: 16, top: 16),
           ),

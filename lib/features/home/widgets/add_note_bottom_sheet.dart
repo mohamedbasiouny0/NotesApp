@@ -19,9 +19,6 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
       create: (context) => AddNoteCubit(),
       child: BlocConsumer<AddNoteCubit, AddNoteState>(
         listener: (context, state) {
-          if (state is AddNoteInitial) {
-            isLoading = false;
-          }
           if (state is AddNoteSuccess) {
             Navigator.pop(context);
             isLoading = false;
@@ -31,14 +28,21 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
           if (state is AddNoteLoading) {
             isLoading = true;
           }
-          return Container(
-            margin: .symmetric(horizontal: 16),
-            child: GestureDetector(
-              onTap: () {
-                FocusScope.of(context).unfocus();
-              },
-              child: SingleChildScrollView(
-                child: AddNoteForm(isLoading: isLoading),
+          return AbsorbPointer(
+            absorbing: state is AddNoteLoading ? true : false,
+            child: Container(
+              margin: .only(
+                right: 16,
+                left: 16,
+                bottom: MediaQuery.of(context).viewInsets.bottom,
+              ),
+              child: GestureDetector(
+                onTap: () {
+                  FocusScope.of(context).unfocus();
+                },
+                child: SingleChildScrollView(
+                  child: AddNoteForm(isLoading: isLoading),
+                ),
               ),
             ),
           );
