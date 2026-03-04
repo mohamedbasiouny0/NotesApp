@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 import 'package:test1/features/edit_note/views/edit_note.dart';
+import 'package:test1/model/note_model.dart';
 import 'package:test1/shared/widgets/custom_text.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
-
+  const NoteItem({super.key, required this.model});
+  final NoteModel model;
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
     final formattedDate = DateFormat('MMMM d,yyyy').format(now);
-
     return GestureDetector(
       onTap: () => Navigator.push(
         context,
@@ -35,14 +35,14 @@ class NoteItem extends StatelessWidget {
                 crossAxisAlignment: .start,
                 children: [
                   CustomText(
-                    text: 'Note title',
+                    text: model.title,
                     color: Colors.black,
                     fontWeight: .w600,
                     fontSize: 24,
                   ),
                   Gap(16),
                   CustomText(
-                    text: 'dnjfdfndnkdfnkdfklfsndlfkLKLFDNKSFDLKFSNFLKSNKLFNLK',
+                    text: model.noteBody,
                     color: Colors.black54,
                     fontWeight: .w400,
                     fontSize: 18,

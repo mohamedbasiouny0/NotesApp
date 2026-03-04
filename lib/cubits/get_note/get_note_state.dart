@@ -9,6 +9,7 @@ final class GetNoteSuccess extends GetNoteState {
   final List<NoteModel> notes;
 
   GetNoteSuccess({required this.notes});
+
 }
 
 final class GetNotefaliure extends GetNoteState {

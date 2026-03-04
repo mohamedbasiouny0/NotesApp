@@ -1,24 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:test1/features/home/widgets/note_item.dart';
+import 'package:test1/model/note_model.dart';
 
 class NotesListView extends StatelessWidget {
-  const NotesListView({super.key});
+  const NotesListView({super.key, required this.notesList});
 
-  // final List<NoteModel> noteModelList = [
-  //   NoteModel(
-  //     title: 'First Note',
-  //     noteBody: 'Hello its my first note now',
-  //     color: 0,
-  //     date: '',
-  //   ),
-  // ];
+  final List<NoteModel> notesList;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: .zero,
-      itemCount: 6,
-      itemBuilder: (context, index) => NoteItem(),
+      itemCount: notesList.length,
+      itemBuilder: (context, index) => NoteItem(model: notesList[index]),
     );
   }
 }
