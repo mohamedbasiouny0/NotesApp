@@ -7,7 +7,8 @@ class CustomFormTextField extends StatelessWidget {
     this.padding,
     required this.hintText,
     this.maxLines = 1,
-    this.onSaved, required this.controller,
+    this.onSaved,
+    required this.controller,
   });
   final EdgeInsetsGeometry? padding;
   final String hintText;
@@ -32,6 +33,7 @@ class CustomFormTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       onSaved: onSaved,
       maxLines: maxLines,

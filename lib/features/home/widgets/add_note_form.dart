@@ -33,12 +33,13 @@ class _AddNoteFormState extends State<AddNoteForm> {
             maxLines: 9,
             hintText: 'Content',
             padding: .only(bottom: 16, left: 16, right: 16, top: 16),
+            onSaved: (value) {},
           ),
           Gap(30),
           CustomElevatedButton(
             onPressed: () {
               if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
+                // formKey.currentState!.save();
                 NoteModel model = NoteModel(
                   title: titleController.text,
                   noteBody: contentController.text,
