@@ -24,7 +24,7 @@ class NotesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GetNoteCubit(),
+      create: (context) => GetNoteCubit()..getAllNotes(),
       child: MaterialApp(
         home: HomeView(),
         debugShowCheckedModeBanner: false,

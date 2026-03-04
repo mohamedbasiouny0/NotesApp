@@ -56,12 +56,11 @@ class NoteItem extends StatelessWidget {
               children: [
                 IconButton(
                   enableFeedback: false,
-                  onPressed: () {},
+                  onPressed: () {
+                    model.delete();
+                  },
                   icon: Icon(Icons.delete_rounded, size: 30),
-                  style: IconButton.styleFrom(
-                    foregroundColor: Colors.black,
-                    overlayColor: Colors.amber.shade100,
-                  ),
+                  style: IconButton.styleFrom(foregroundColor: Colors.black),
                 ),
                 CustomText(
                   text: formattedDate,
