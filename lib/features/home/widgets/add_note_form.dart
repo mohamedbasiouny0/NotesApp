@@ -47,7 +47,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 NoteModel model = NoteModel(
                   title: titleController.text,
                   noteBody: contentController.text,
-                  color: Colors.blue.value,
+                  color: Colors.black.value,
                   date: DateTime.now().toString(),
                 );
                 BlocProvider.of<AddNoteCubit>(context).addNote(model);

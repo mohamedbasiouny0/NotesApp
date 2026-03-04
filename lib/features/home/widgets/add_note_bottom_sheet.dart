@@ -15,39 +15,36 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AddNoteCubit(),
-      child: BlocConsumer<AddNoteCubit, AddNoteState>(
-        listener: (context, state) {
-          if (state is AddNoteSuccess) {
-            Navigator.pop(context);
-            isLoading = false;
-          }
-        },
-        builder: (context, state) {
-          if (state is AddNoteLoading) {
-            isLoading = true;
-          }
-          return AbsorbPointer(
-            absorbing: state is AddNoteLoading ? true : false,
-            child: Container(
-              margin: .only(
-                right: 16,
-                left: 16,
-                bottom: MediaQuery.of(context).viewInsets.bottom,
-              ),
-              child: GestureDetector(
-                onTap: () {
-                  FocusScope.of(context).unfocus();
-                },
-                child: SingleChildScrollView(
-                  child: AddNoteForm(isLoading: isLoading),
-                ),
+    return BlocConsumer<AddNoteCubit, AddNoteState>(
+      listener: (context, state) {
+        if (state is AddNoteSuccess) {
+          Navigator.pop(context);
+          isLoading = false;
+        }
+      },
+      builder: (context, state) {
+        if (state is AddNoteLoading) {
+          isLoading = true;
+        }
+        return AbsorbPointer(
+          absorbing: state is AddNoteLoading ? true : false,
+          child: Container(
+            margin: .only(
+              right: 16,
+              left: 16,
+              bottom: MediaQuery.of(context).viewInsets.bottom,
+            ),
+            child: GestureDetector(
+              onTap: () {
+                FocusScope.of(context).unfocus();
+              },
+              child: SingleChildScrollView(
+                child: AddNoteForm(isLoading: isLoading),
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

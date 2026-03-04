@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test1/cubits/add_note_cubit/add_note_cubit.dart';
 
 class ColorPickerWidget extends StatefulWidget {
   const ColorPickerWidget({super.key});
@@ -10,18 +12,10 @@ class ColorPickerWidget extends StatefulWidget {
 
 class _ColorPickerWidgetState extends State<ColorPickerWidget> {
   List<Color> pastelColors = [
-    Color(0xFFFFC1CC),
-    Color(0xFFFFF1C1),
-    Color(0xFFC1FFD7),
-    Color(0xFFC1D4FF),
-    Color(0xFFE8C1FF),
-    Color(0xFFFFE0C1),
-    Color(0xFFBCE0FD),
-    Color(0xFFFFCFC1),
-    Color(0xFFD1FFC1),
-    Color(0xFFFFF4C1),
-    Color(0xFFC1FFF3),
-    Color(0xFFF5C1FF),
+    Color(0xFFFFF2C6),
+    Color(0xFFFFF8DE),
+    Color(0xFFAAC4F5),
+    Color(0xFF8CA9FF),
   ];
 
   Color? selectedColor;
@@ -36,12 +30,12 @@ class _ColorPickerWidgetState extends State<ColorPickerWidget> {
         itemBuilder: (context, index) {
           Color color = pastelColors[index];
           bool isSelected = selectedColor == color;
-
           return GestureDetector(
             onTap: () {
               setState(() {
                 selectedColor = color;
               });
+              BlocProvider.of<AddNoteCubit>(context).updateColor(color);
             },
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 6),
