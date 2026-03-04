@@ -9,12 +9,14 @@ class CustomFormTextField extends StatelessWidget {
     this.maxLines = 1,
     this.onSaved,
     required this.controller,
+    this.onChanged,
   });
   final EdgeInsetsGeometry? padding;
   final String hintText;
   final int maxLines;
   final void Function(String?)? onSaved;
   final TextEditingController controller;
+  final void Function(String)? onChanged;
 
   OutlineInputBorder buildBorder() {
     return OutlineInputBorder(
@@ -33,6 +35,7 @@ class CustomFormTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       controller: controller,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       onSaved: onSaved,

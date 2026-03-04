@@ -8,8 +8,8 @@ import 'package:test1/model/note_model.dart';
 import 'package:test1/shared/widgets/custom_text.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key, required this.model});
-  final NoteModel model;
+  const NoteItem({super.key, required this.note});
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
@@ -17,7 +17,7 @@ class NoteItem extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => EditNoteView()),
+        MaterialPageRoute(builder: (context) => EditNoteView(note: note)),
       ),
       child: Container(
         padding: .all(32),
@@ -37,14 +37,14 @@ class NoteItem extends StatelessWidget {
                 crossAxisAlignment: .start,
                 children: [
                   CustomText(
-                    text: model.title,
+                    text: note.title,
                     color: Colors.black,
                     fontWeight: .w600,
                     fontSize: 24,
                   ),
                   Gap(16),
                   CustomText(
-                    text: model.noteBody,
+                    text: note.noteBody,
                     color: Colors.black54,
                     fontWeight: .w400,
                     fontSize: 18,
@@ -59,7 +59,7 @@ class NoteItem extends StatelessWidget {
                 IconButton(
                   enableFeedback: false,
                   onPressed: () {
-                    model.delete();
+                    note.delete();
                     BlocProvider.of<GetNoteCubit>(context).getAllNotes();
                   },
                   icon: Icon(Icons.delete_rounded, size: 30),
